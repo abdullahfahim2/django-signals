@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>StockLite POS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow p-4">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-2xl font-bold text-blue-600">StockLite POS</h1>
+
+            <div class="flex gap-4">
+                <a href="{% url 'product_list' %}" class="text-gray-600 hover:text-blue-600">Products</a>
+                <a href="{% url 'sale_list' %}" class="text-gray-600 hover:text-blue-600">Sales</a>
+                <a href="{% url 'create_sale' %}" class="bg-blue-600 text-white px-4 py-1 rounded">New Sale</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-8">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+
+</html>

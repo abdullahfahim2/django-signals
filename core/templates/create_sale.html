@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="text-2xl font-bold mb-4">Create Sale</h2>
+
+<form action="" method="POST" class="bg-white p-6 rounded shadow max-w-md">
+    {% csrf_token %}
+
+    <label class="block mb-3">
+        <span class="text-gray-700">Product</span>
+        <select name="product" class="mt-1 px-3 py-2 border rounded w-full">
+            {% for p in products %}
+            <option value="{{ p.id }}">{{ p.name }} (Stock: {{ p.stock }})</option>
+            {% endfor %}
+        </select>
+    </label>
+
+    <label class="block mb-3">
+        <span class="text-gray-700">Quantity</span>
+        <input type="number" name="quantity" min="1" class="mt-1 px-3 py-2 border rounded w-full">
+    </label>
+
+    <button class="bg-blue-600 text-white px-4 py-2 rounded">Create Sale</button>
+</form>
+
+{% endblock %}
